@@ -42,10 +42,10 @@ def parse_page(html):
                 'born_location': born_location,
                 'description': description
             }
-            # try:
-            #     db.authors.insert_one(authors[author_name])
-            # except Exception as e:
-            #     print(e)
+            try:
+                db.authors.insert_one(authors[author_name])
+            except Exception as e:
+                print(e)
         tags = [tag.text for tag in quote.find_all('a', class_='tag')]
         quotes.append({'quote': text, 'author': author_name, 'tags': tags})  
         try:
